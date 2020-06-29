@@ -1,0 +1,495 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="简单 - 传递美好">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="https://www.if-she.com">
+    <!--SEO-->
+
+<meta name="keywords" content="linux,windows" />
+
+
+<meta name="description" content="目前(我)已知的包管理器
+
+目前在Windows 10平台上最热门的软件包管理工具就属Scoop和Chocolatey了。这两款工具都有类似的功能集，允许用户在Windows PC上自动安装软件..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    windows下使用软件包管理器 |
+    
+    简单 - 传递美好
+</title>
+
+<link rel="alternate" href="/atom.xml" title="简单 - 传递美好" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?true";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+    <!-- Baidu Analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?8ce0d9d27ed019c8b2168cf7b304afd7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- baidu push -->
+    <script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167108107-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-167108107-1');
+    </script>
+    <!-- Google Adsense -->
+    <script data-ad-client="ca-pub-7668686520438482" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" >
+    
+        <div id="top-image" style="background-image:url(/img/banner.jpg)"></div>
+    
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ccheng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                简单 - 传递美好
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://www.if-she.com">
+                        简单 - 传递美好</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/笔记/"><i class="fa "></i>
+                                笔记</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="windows下使用软件包管理器">
+            
+            windows下使用软件包管理器
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/linux/" rel="tag">linux</a> <a class="tag-link" href="/tags/windows/" rel="tag">windows</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/19</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>目前(我)已知的包管理器</p>
+<blockquote>
+<p>目前在Windows 10平台上最热门的软件包管理工具就属Scoop和Chocolatey了。这两款工具都有类似的功能集，允许用户在Windows PC上自动安装软件。</p>
+</blockquote>
+<h1 id="Chocolatey"><a href="#Chocolatey" class="headerlink" title="Chocolatey"></a>Chocolatey</h1><p>自我定位是Windows系统的“软件管理自动化”。它能够在无需人工干预的情况下自动安装超过20种Windows软件包类型，而且开箱即用，支持配置超过7000款主流软件，包括Google Chrome和VLC多媒体播放器等桌面热门应用程序。<br>但是Chocolatey的普遍适用性也带来了额外的复杂性。Chocolatey依赖于Windows PowerShell及其NuGet包管理器系统，该系统主要用于解决软件库依赖关系。Chocolatey也往往需要管理员权限才能运行使用，这就意味着你将会被UAC弹出窗口打断。<br>相比之下，Scoop并不使用NuGet而且不会进行全局安装。相反，这些应用程序的范围会被限定在你的用户账户中，并安装到特殊目录以避免路径污染。 Scoop甚至将自己与被视为包管理器的距离保持距离，因为它只是“读取描述如何安装程序及其依赖关系的清单”。<br>使用Chocolatey安装的软件包自定义路径需要使用付费版本</p>
+<h1 id="One-get"><a href="#One-get" class="headerlink" title="One-get"></a>One-get</h1><p>OneGet最早在Win8.1时期作为可选功能推出， OneGet经过了几个大版本的更新后，伴随着Win10正式版一并发布， OneGet让用户可以像Linux系统一样，通过简单的命令行操作来管理应用程序包  </p>
+<h1 id="Scoop"><a href="#Scoop" class="headerlink" title="Scoop"></a>Scoop</h1><p>Scoop并不使用NuGet而且不会进行全局安装。与Chocolatey相反，这些应用程序的范围会被限定在你的用户账户中，并安装到特殊目录以避免路径污染。 Scoop甚至将自己与被视为包管理器的距离保持距离，因为它只是“读取描述如何安装程序及其依赖关系的清单”。<br>它会自动设置环境变量，也会管理程序依赖。再添加了仓库之后，基本能满足我的软件安装和管理需求。后期我也会学习一下官方的配置写法，维护一下我需要的一些其他的软件。详情可参见官网，<a href="https://github.com/lukesampson/scoop" target="_blank" rel="noopener">github</a>，<a href="https://github.com/lukesampson/scoop/wiki" target="_blank" rel="noopener">github-wiki</a>。</p>
+<h2 id="安装前的准备"><a href="#安装前的准备" class="headerlink" title="安装前的准备"></a>安装前的准备</h2><ul>
+<li>用户名不含中文字符</li>
+<li>Windows 7 SP1+ / Windows Server 2008+</li>
+<li><a href="https://www.microsoft.com/en-us/download/details.aspx?id=34595" target="_blank" rel="noopener">PowerShell 3+</a></li>
+<li><a href="https://www.microsoft.com/net/download" target="_blank" rel="noopener">.NET Framework 4.5+</a></li>
+</ul>
+<p><strong>若 Powershell 或 .NET Franmework 版本过旧，更新后重启即可。<br>若不清楚版本号，可 <kbd>Win+R</kbd> 运行 <code>powershell</code> ，输入以下命令获取版本号。</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$PSVersionTable</span>.PSVersion.Major   <span class="comment"># 查看Powershell版本</span></span><br><span class="line"><span class="variable">$PSVersionTable</span>.CLRVersion.Major  <span class="comment"># 查看.NET Framework版本</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装scoop"><a href="#安装scoop" class="headerlink" title="安装scoop"></a>安装scoop</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned <span class="literal">-scope</span> CurrentUser</span><br><span class="line">iwr <span class="literal">-useb</span> get.scoop.sh | iex</span><br><span class="line"><span class="comment"># 友好安装</span></span><br><span class="line"><span class="comment"># step1: 安装盘符 – 你要安装到哪个盘里</span></span><br><span class="line"><span class="comment"># step2: 是否启用代理 – 下载时代理到本地的1080端口，让请求走本地的tz</span></span><br><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned <span class="literal">-scope</span> CurrentUser</span><br><span class="line">iwr <span class="literal">-useb</span> scoop.if<span class="literal">-she</span>.com/is.ps1 | iex</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果下载scoop的过程中断，那么必须先删除(C:\Users\你的用户名\scoop)文件夹，再执行以上命令安装。</strong><br>下载完成后，输入<code>scoop</code>出现如下帮助即安装成功。</p>
+<h3 id="帮助文档"><a href="#帮助文档" class="headerlink" title="帮助文档"></a>帮助文档</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Usage: scoop &lt;command&gt; [&lt;args&gt;]</span><br><span class="line"></span><br><span class="line">Some useful commands are:</span><br><span class="line"></span><br><span class="line">alias       Manage scoop aliases</span><br><span class="line">bucket      Manage Scoop buckets</span><br><span class="line">cache       Show or clear the download cache</span><br><span class="line">checkup     Check for potential problems</span><br><span class="line">cleanup     Cleanup apps by removing old versions</span><br><span class="line">config      Get or set configuration values</span><br><span class="line">create      Create a custom app manifest</span><br><span class="line">depends     List dependencies for an app</span><br><span class="line">export      Exports (an importable) list of installed apps</span><br><span class="line">help        Show help for a command</span><br><span class="line">home        Opens the app homepage</span><br><span class="line">info        Display information about an app</span><br><span class="line">install     Install apps</span><br><span class="line">list        List installed apps</span><br><span class="line">prefix      Returns the path to the specified app</span><br><span class="line">reset       Reset an app to resolve conflicts</span><br><span class="line">search      Search available apps</span><br><span class="line">status      Show status and check for new app versions</span><br><span class="line">uninstall   Uninstall an app</span><br><span class="line">update      Update apps, or Scoop itself</span><br><span class="line">virustotal  Look for app&#39;s hash on virustotal.com</span><br><span class="line">which       Locate a shim&#x2F;executable (similar to &#39;which&#39; on Linux)</span><br><span class="line"></span><br><span class="line">Type &#39;scoop help &lt;command&gt;&#39; to get help for a specific command.</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="查找软件"><a href="#查找软件" class="headerlink" title="查找软件"></a>查找软件</h3><p>在安装软件之前，推荐先查询一下。比如我们查询一下git：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop search git</span><br></pre></td></tr></table></figure>
+<p>在<strong>main</strong>仓库中找到如下软件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#39;main&#39; bucket:</span><br><span class="line">    git-annex (7.20190129)</span><br><span class="line">    git-crypt (0.6.0-701fb8e)</span><br><span class="line">    git-istage (0.2.61)</span><br><span class="line">    git-lfs (2.6.1)</span><br><span class="line">    git-sizer (1.3.0)</span><br><span class="line">    git-town (7.2.0)</span><br><span class="line">    git-up (1.6.1)</span><br><span class="line">    git-with-openssh (2.20.1.windows.1)</span><br><span class="line">    git (2.20.1.windows.1)</span><br><span class="line">    git19 (1.9.5-preview20150319)</span><br><span class="line">    gitignore (0.2018.08.04)</span><br><span class="line">    gitkube (0.3.0)</span><br><span class="line">    gitlab-runner (11.7.0)</span><br><span class="line">    gitversion (4.0.0)</span><br><span class="line">    mingit-busybox (2.20.1.windows.1)</span><br><span class="line">    mingit (2.20.1.windows.1)</span><br><span class="line">    psgithub (2017.01.22)</span><br><span class="line">    psutils (0.2018.08.04) --&gt; includes &#39;gitignore.ps1&#39;</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h3><p>找到git的包名后，我们安装它：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install git</span><br></pre></td></tr></table></figure>
+<p>安装成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Installing &#39;git&#39; (2.20.1.windows.1) [64bit]</span><br><span class="line">Loading PortableGit-2.20.1-64-bit.7z.exe from cache</span><br><span class="line">Checking hash of PortableGit-2.20.1-64-bit.7z.exe ... ok.</span><br><span class="line">Extracting dl.7z ... done.</span><br><span class="line">Linking ~\scoop\apps\git\current &#x3D;&gt; ~\scoop\apps\git\2.20.1.windows.1</span><br><span class="line">Creating shim for &#39;git&#39;.</span><br><span class="line">Creating shim for &#39;gitk&#39;.</span><br><span class="line">Creating shim for &#39;git-gui&#39;.</span><br><span class="line">Creating shim for &#39;tig&#39;.</span><br><span class="line">Creating shim for &#39;git-bash&#39;.</span><br><span class="line">Creating shortcut for Git Bash (git-bash.exe)</span><br><span class="line">Running post-install script...</span><br><span class="line">&#39;git&#39; (2.20.1.windows.1) was installed successfully!</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用aria2加速下载"><a href="#利用aria2加速下载" class="headerlink" title="利用aria2加速下载"></a>利用aria2加速下载</h3><p>在使用scoop安装aria2后，scoop会自动调用aria2进行多线程下载以加速下载：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scoop install aria2</span><br><span class="line"><span class="comment"># 下载完成后，记得打开16线程（aria2编译版本默认最高线程为16，需要更高的请自行编译）：</span></span><br><span class="line">scoop config aria2<span class="literal">-max</span><span class="literal">-connection</span><span class="literal">-per</span><span class="literal">-server</span> <span class="number">16</span></span><br><span class="line">scoop config aria2<span class="operator">-split</span> <span class="number">16</span></span><br><span class="line">scoop config aria2<span class="literal">-min</span><span class="operator">-split</span><span class="literal">-size</span> <span class="number">1</span>M</span><br></pre></td></tr></table></figure>
+
+<h3 id="卸载软件"><a href="#卸载软件" class="headerlink" title="卸载软件"></a>卸载软件</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop uninstall 软件名</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新scoop及软件"><a href="#更新scoop及软件" class="headerlink" title="更新scoop及软件"></a>更新scoop及软件</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scoop update <span class="comment">#更新scoop</span></span><br><span class="line">scoop update <span class="number">7</span>zip <span class="comment">#更新7zip</span></span><br><span class="line">scoop * <span class="comment">#更新全部</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加仓库"><a href="#添加仓库" class="headerlink" title="添加仓库"></a>添加仓库</h3><p>scoop自带的main bucket软件过少，我们需要添加官方维护的extras bucket<br>第三方仓库过于杂乱</p>
+<p>我们可以在 <a href="https://scoop.if-she.com" target="_blank" rel="noopener">scoop应用汇总</a> 中直接搜索相关软件，点击<code>install</code>自动添加仓库与安装</p>
+<h3 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h3><ul>
+<li>wechat: 微信,是一个生活方式</li>
+<li>googlechrome: Google Chrome 网络浏览器</li>
+<li>firefox: Firefox 火狐浏览器 - 全新、安全、快速</li>
+<li>neteasemusic: 网易云音乐</li>
+<li>mouseInc: 鼠标手势</li>
+<li>sublime-text: 小巧好用的编辑器</li>
+<li>vscode: 最好用的前端编辑器</li>
+<li>IntelliJ-IDEA-Ultimate: 最强IDE</li>
+<li>photoshop2018: 最强图片处理软件</li>
+<li>pandownload: 第三方百度网盘</li>
+<li>fiddler: windows下最好用的抓包工具<ul>
+<li>mitmproxy: 也是一个好用的抓包工具</li>
+</ul>
+</li>
+<li>wechatdevtools: 微信开发者IDE</li>
+<li>countrytraceroute: 路由追踪工具</li>
+<li>snipaste: 简单但功能强大的截图工具</li>
+<li>windows-terminal: 微软官方命令行工具</li>
+<li>tortoisesvn: windows SVN客户端</li>
+<li>phpenv: PHP继承开发环境</li>
+<li>ccleaner: 清理并加快运行缓慢的PC</li>
+<li>teamviewer: 远程控制软件</li>
+<li>keymanager: 提供安全便捷的SSL证书申请和管理<br>```</li>
+</ul>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/reward/alipay.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/reward/wepay.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://www.if-she.com" target="_blank">https://www.if-she.com</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/trouble/PHP%E5%9C%A8linux%E4%B8%8B%E6%A3%80%E6%B5%8B%E5%8F%AF%E7%94%A8%E7%AB%AF%E5%8F%A3/" class="pre-post btn btn-default" title='PHP在linux下检测可用端口'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            PHP在linux下检测可用端口</span>
+    </a>
+    
+    
+    <a href="/trouble/wsl%E5%90%AF%E5%8A%A8mysql%E6%8A%A5%E9%94%99/" class="next-post btn btn-default" title='wsl启动mysql报错'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            wsl启动mysql报错</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    
+<div class="widget">
+    <h3 class="title">
+        搜索
+    </h3>
+    <div id="search-form">
+        <div id="result-mask" class="hide"></div>
+        <div class="search-area">
+            
+            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
+            <button type="button" class="search-form-submit" id="search-local">
+                站内搜索</button>
+            
+            
+        </div>
+        <div id="result-wrap" class="hide">
+            <div id="search-result"></div>
+        </div>
+        <div class="hide">
+            <template id="search-tpl">
+                <div class="item">
+                    <a href="/{path}" title="{title}">
+                        <div class="title">{title}</div>
+                        <div class="content">{content}</div>
+                    </a>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>
+
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chocolatey"><span class="toc-text">Chocolatey</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#One-get"><span class="toc-text">One-get</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scoop"><span class="toc-text">Scoop</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装前的准备"><span class="toc-text">安装前的准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装scoop"><span class="toc-text">安装scoop</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#帮助文档"><span class="toc-text">帮助文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找软件"><span class="toc-text">查找软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装软件"><span class="toc-text">安装软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用aria2加速下载"><span class="toc-text">利用aria2加速下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载软件"><span class="toc-text">卸载软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新scoop及软件"><span class="toc-text">更新scoop及软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加仓库"><span class="toc-text">添加仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用软件"><span class="toc-text">常用软件</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    <a href="https://www.if-she.com">小成的博客</a>
+                    
+                    
+                </span>
+                <!-- <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/search.js?rev=@@hash.js"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="简单 - 传递美好">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="https://www.if-she.com">
+    <!--SEO-->
+
+<meta name="keywords" content="php" />
+
+
+<meta name="description" content="mime_content_type()函数判断获取mime类型mime_content_type返回指定文件的MIME类型，用法：echomime_content_type(‘php.gif’)..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    PHP获取文件mime类型的方法 |
+    
+    简单 - 传递美好
+</title>
+
+<link rel="alternate" href="/atom.xml" title="简单 - 传递美好" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?true";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+    <!-- Baidu Analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?8ce0d9d27ed019c8b2168cf7b304afd7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- baidu push -->
+    <script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167108107-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-167108107-1');
+    </script>
+    <!-- Google Adsense -->
+    <script data-ad-client="ca-pub-7668686520438482" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" >
+    
+        <div id="top-image" style="background-image:url(/img/banner.jpg)"></div>
+    
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ccheng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                简单 - 传递美好
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://www.if-she.com">
+                        简单 - 传递美好</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/笔记/"><i class="fa "></i>
+                                笔记</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="PHP获取文件mime类型的方法">
+            
+            PHP获取文件mime类型的方法
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/php/" rel="tag">php</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/20</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="mime-content-type-函数判断获取mime类型"><a href="#mime-content-type-函数判断获取mime类型" class="headerlink" title="mime_content_type()函数判断获取mime类型"></a>mime_content_type()函数判断获取mime类型</h1><p>mime_content_type返回指定文件的MIME类型，<br>用法：echomime_content_type(‘php.gif’) .<br>“\n”;echomime_content_type(‘test.php’);输出：image/giftext/plain但是php 5.3.0已经将该函数废弃。如果仍想使用此函数，那么可以对php进行配置启用magic_mime扩展。</p>
+<h1 id="php-Fileinfo-获取文件MIME类型-finfo-open"><a href="#php-Fileinfo-获取文件MIME类型-finfo-open" class="headerlink" title="php Fileinfo 获取文件MIME类型(finfo_open)"></a>php Fileinfo 获取文件MIME类型(finfo_open)</h1><p>PHP官方推荐mime_content_type()的替代函数是Fileinfo函数。PHP<br>5.3.0+已经默认支持Fileinfo函数(fileinfo<br>support-enabled)，不必进行任何配置即可使用finfo_open()判断获取文件MIME类型。<br>用法：$finfo = finfo_open(FILEINFO_MIME);<br>$mimetype = finfo_file($finfo, $filename);<br>finfo_close($finfo);</p>
+<h1 id="image-type-to-mime-type-获取图片MIME类型"><a href="#image-type-to-mime-type-获取图片MIME类型" class="headerlink" title="image_type_to_mime_type()获取图片MIME类型"></a>image_type_to_mime_type()获取图片MIME类型</h1><p>注意：需要在php.ini中配置打开php_mbstring.dll(Windows需要)和extension=php_exif.dll。</p>
+<h1 id="php上传文件获取MIME类型"><a href="#php上传文件获取MIME类型" class="headerlink" title="php上传文件获取MIME类型"></a>php上传文件获取MIME类型</h1><p>发送多种数据的多部分对象集合<br>发送邮件时,我们可以在邮件里写入文字并添加多份附件,这是因为采用了MIME(Multipurpose Internet Mail Extensions多用途因特网邮件扩展)机制,它允许邮件处理文本\图片\视频等多种不同类型的数据.例如,图片等二进制数据以ascii码字符串编码的方式指明,就利用MIME来描述标记数据类型.而在MIME扩展中会使用一种称为多部分对象集合(Multipart)的方法,来容纳多份不同类型的数据.<br>  相应的,HTTP协议中也采纳了多部分对象集合,发送的一份报文主体内可含有多类型实体.通常在图片或者文本文件等上传时使用.<br> 多部分对象集合包含的对象如下:<br> multipart/form-data 在表单上传文件时使用<br> multipart/byteranges 状态码206(部分内容)响应报文包含了多个范围的内容时使用.</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/reward/alipay.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/reward/wepay.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://www.if-she.com" target="_blank">https://www.if-she.com</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/trouble/HTTP%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/" class="pre-post btn btn-default" title='HTTP常见响应码'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            HTTP常见响应码</span>
+    </a>
+    
+    
+    <a href="/trouble/js%E7%A4%BE%E4%BA%A4%E5%88%86%E4%BA%AB/" class="next-post btn btn-default" title='js社交分享'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            js社交分享</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    
+<div class="widget">
+    <h3 class="title">
+        搜索
+    </h3>
+    <div id="search-form">
+        <div id="result-mask" class="hide"></div>
+        <div class="search-area">
+            
+            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
+            <button type="button" class="search-form-submit" id="search-local">
+                站内搜索</button>
+            
+            
+        </div>
+        <div id="result-wrap" class="hide">
+            <div id="search-result"></div>
+        </div>
+        <div class="hide">
+            <template id="search-tpl">
+                <div class="item">
+                    <a href="/{path}" title="{title}">
+                        <div class="title">{title}</div>
+                        <div class="content">{content}</div>
+                    </a>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>
+
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mime-content-type-函数判断获取mime类型"><span class="toc-text">mime_content_type()函数判断获取mime类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#php-Fileinfo-获取文件MIME类型-finfo-open"><span class="toc-text">php Fileinfo 获取文件MIME类型(finfo_open)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#image-type-to-mime-type-获取图片MIME类型"><span class="toc-text">image_type_to_mime_type()获取图片MIME类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#php上传文件获取MIME类型"><span class="toc-text">php上传文件获取MIME类型</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    <a href="https://www.if-she.com">小成的博客</a>
+                    
+                    
+                </span>
+                <!-- <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/search.js?rev=@@hash.js"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

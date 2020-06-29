@@ -1,0 +1,600 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="简单 - 传递美好">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="https://www.if-she.com">
+    <!--SEO-->
+
+<meta name="keywords" content="nginx" />
+
+
+<meta name="description" content="1xx:信息
+100 Continue  服务器仅接收到部分请求，但是一旦服务器并没有拒绝该请求，客户端应该继续发送其余的请求。
+
+101 Switching Protocols  服务器转换协..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    HTTP常见响应码 |
+    
+    简单 - 传递美好
+</title>
+
+<link rel="alternate" href="/atom.xml" title="简单 - 传递美好" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?true";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+    <!-- Baidu Analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?8ce0d9d27ed019c8b2168cf7b304afd7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- baidu push -->
+    <script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167108107-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-167108107-1');
+    </script>
+    <!-- Google Adsense -->
+    <script data-ad-client="ca-pub-7668686520438482" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" >
+    
+        <div id="top-image" style="background-image:url(/img/banner.jpg)"></div>
+    
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ccheng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                简单 - 传递美好
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://www.if-she.com">
+                        简单 - 传递美好</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/笔记/"><i class="fa "></i>
+                                笔记</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="HTTP常见响应码">
+            
+            HTTP常见响应码
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/nginx/" rel="tag">nginx</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/20</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="1xx-信息"><a href="#1xx-信息" class="headerlink" title="1xx:信息"></a>1xx:信息</h1><ul>
+<li><p>100 Continue<br>  服务器仅接收到部分请求，但是一旦服务器并没有拒绝该请求，客户端应该继续发送其余的请求。</p>
+</li>
+<li><p>101 Switching Protocols<br>  服务器转换协议：服务器将遵从客户的请求转换到另外一种协议。</p>
+</li>
+</ul>
+<h1 id="2xx-成功"><a href="#2xx-成功" class="headerlink" title="2xx:成功"></a>2xx:成功</h1><ul>
+<li><p>200 OK<br>  请求成功（其后是对GET和POST请求的应答文档）</p>
+</li>
+<li><p>201 Created<br>  请求被创建完成，同时新的资源被创建。</p>
+</li>
+<li><p>202 Accepted<br>  供处理的请求已被接受，但是处理未完成。</p>
+</li>
+<li><p>203 Non-authoritative Information<br>  文档已经正常地返回，但一些应答头可能不正确，因为使用的是文档的拷贝。</p>
+</li>
+<li><p>204 No Content<br>  没有新文档。浏览器应该继续显示原来的文档。如果用户定期地刷新页面，而Servlet可以确定用户文档足够新，这个状态代码是很有用的。</p>
+</li>
+<li><p>205 Reset Content<br>  没有新文档。但浏览器应该重置它所显示的内容。用来强制浏览器清除表单输入内容。</p>
+</li>
+<li><p>206 Partial Content<br>  客户发送了一个带有Range头的GET请求，服务器完成了它。</p>
+</li>
+</ul>
+<h1 id="3xx-重定向"><a href="#3xx-重定向" class="headerlink" title="3xx:重定向"></a>3xx:重定向</h1><ul>
+<li><p>300 Multiple Choices<br>  多重选择。链接列表。用户可以选择某链接到达目的地。最多允许五个地址。</p>
+</li>
+<li><p>301 Moved Permanently<br>  所请求的页面已经转移至新的url。</p>
+</li>
+<li><p>302 Moved Temporarily<br>  所请求的页面已经临时转移至新的url。</p>
+</li>
+<li><p>303 See Other<br>  所请求的页面可在别的url下被找到。</p>
+</li>
+<li><p>304 Not Modified<br>  未按预期修改文档。客户端有缓冲的文档并发出了一个条件性的请求（一般是提供If-Modified-Since头表示客户只想比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。</p>
+</li>
+<li><p>305 Use Proxy<br>  客户请求的文档应该通过Location头所指明的代理服务器提取。</p>
+</li>
+<li><p>306 Unused<br>  此代码被用于前一版本。目前已不再使用，但是代码依然被保留。</p>
+</li>
+<li><p>307 Temporary Redirect<br>  被请求的页面已经临时移至新的url。</p>
+</li>
+</ul>
+<h1 id="4xx-客户端错误"><a href="#4xx-客户端错误" class="headerlink" title="4xx:客户端错误"></a>4xx:客户端错误</h1><ul>
+<li><p>400 Bad Request<br>  服务器未能理解请求。</p>
+</li>
+<li><p>401 Unauthorized<br>  被请求的页面需要用户名和密码。</p>
+</li>
+<li><p>401.1<br>  登录失败。</p>
+</li>
+<li><p>401.2<br>  服务器配置导致登录失败。</p>
+</li>
+<li><p>401.3<br>  由于 ACL 对资源的限制而未获得授权。</p>
+</li>
+<li><p>401.4<br>  筛选器授权失败。</p>
+</li>
+<li><p>401.5<br>  ISAPI/CGI 应用程序授权失败。</p>
+</li>
+<li><p>401.7<br>  访问被 Web 服务器上的 URL 授权策略拒绝。这个错误代码为 IIS 6.0 所专用。</p>
+</li>
+<li><p>402 Payment Required<br>  此代码尚无法使用。</p>
+</li>
+<li><p>403 Forbidden<br>  对被请求页面的访问被禁止。</p>
+</li>
+<li><p>403.1<br>  执行访问被禁止。</p>
+</li>
+<li><p>403.2<br>  读访问被禁止。</p>
+</li>
+<li><p>403.3<br>  写访问被禁止。</p>
+</li>
+<li><p>403.4<br>  要求 SSL。</p>
+</li>
+<li><p>403.5<br>  要求 SSL 128。</p>
+</li>
+<li><p>403.6<br>  IP 地址被拒绝。</p>
+</li>
+<li><p>403.7<br>  要求客户端证书。</p>
+</li>
+<li><p>403.8<br>  站点访问被拒绝。</p>
+</li>
+<li><p>403.9<br>  用户数过多。</p>
+</li>
+<li><p>403.10<br>  配置无效。</p>
+</li>
+<li><p>403.11<br>  密码更改。</p>
+</li>
+<li><p>403.12<br>  拒绝访问映射表。</p>
+</li>
+<li><p>403.13<br>  客户端证书被吊销。</p>
+</li>
+<li><p>403.14<br>  拒绝目录列表。</p>
+</li>
+<li><p>403.15<br>  超出客户端访问许可。</p>
+</li>
+<li><p>403.16<br>  客户端证书不受信任或无效。</p>
+</li>
+<li><p>403.17<br>  客户端证书已过期或尚未生效。</p>
+</li>
+<li><p>403.18<br>  在当前的应用程序池中不能执行所请求的 URL。这个错误代码为 IIS 6.0 所专用。</p>
+</li>
+<li><p>403.19<br>  不能为这个应用程序池中的客户端执行 CGI。这个错误代码为 IIS 6.0 所专用。</p>
+</li>
+<li><p>403.20<br>  Passport 登录失败。这个错误代码为 IIS 6.0 所专用。</p>
+</li>
+<li><p>404 Not Found<br>  服务器无法找到被请求的页面。</p>
+</li>
+<li><p>404.0<br>  没有找到文件或目录。</p>
+</li>
+<li><p>404.1<br>  无法在所请求的端口上访问 Web 站点。</p>
+</li>
+<li><p>404.2<br>  Web 服务扩展锁定策略阻止本请求。</p>
+</li>
+<li><p>404.3<br>  MIME 映射策略阻止本请求。</p>
+</li>
+<li><p>405 Method Not Allowed<br>  请求中指定的方法不被允许。</p>
+</li>
+<li><p>406 Not Acceptable<br>  服务器生成的响应无法被客户端所接受。</p>
+</li>
+<li><p>407 Proxy Authentication Required<br>  用户必须首先使用代理服务器进行验证，这样请求才会被处理。</p>
+</li>
+<li><p>408 Request Timeout<br>  请求超出了服务器的等待时间。</p>
+</li>
+<li><p>409 Conflict<br>  由于冲突，请求无法被完成。</p>
+</li>
+<li><p>410 Gone<br>  被请求的页面不可用。</p>
+</li>
+<li><p>411 Length Required<br>  “Content-Length” 未被定义。如果无此内容，服务器不会接受请求。</p>
+</li>
+<li><p>412 Precondition Failed<br>  请求中的前提条件被服务器评估为失败。</p>
+</li>
+<li><p>413 Request Entity Too Large<br>  由于所请求的实体的太大，服务器不会接受请求。</p>
+</li>
+<li><p>414 Request-url Too Long<br>  由于url太长，服务器不会接受请求。当post请求被转换为带有很长的查询信息的get请求时，就会发生这种情况。</p>
+</li>
+<li><p>415 Unsupported Media Type<br>  由于媒介类型不被支持，服务器不会接受请求。</p>
+</li>
+<li><p>416 Requested Range Not Satisfiable<br>  服务器不能满足客户在请求中指定的Range头。</p>
+</li>
+<li><p>417 Expectation Failed<br>  执行失败。</p>
+</li>
+<li><p>423<br>  锁定的错误。</p>
+</li>
+</ul>
+<h1 id="5xx-服务器错误"><a href="#5xx-服务器错误" class="headerlink" title="5xx:服务器错误"></a>5xx:服务器错误</h1><ul>
+<li><p>500 Internal Server Error<br>  请求未完成。服务器遇到不可预知的情况。</p>
+</li>
+<li><p>500.12<br>  应用程序正忙于在 Web 服务器上重新启动。</p>
+</li>
+<li><p>500.13<br>  Web 服务器太忙。</p>
+</li>
+<li><p>500.15<br>  不允许直接请求 Global.asa。</p>
+</li>
+<li><p>500.16<br>  UNC 授权凭据不正确。这个错误代码为 IIS 6.0 所专用。</p>
+</li>
+<li><p>500.18<br>  URL 授权存储不能打开。这个错误代码为 IIS 6.0 所专用。</p>
+</li>
+<li><p>500.100<br>  内部 ASP 错误。</p>
+</li>
+<li><p>501 Not Implemented<br>  请求未完成。服务器不支持所请求的功能。</p>
+</li>
+<li><p>502 Bad Gateway<br>  请求未完成。服务器从上游服务器收到一个无效的响应。</p>
+</li>
+<li><p>502.1<br>  CGI 应用程序超时。　·</p>
+</li>
+<li><p>502.2<br>  CGI 应用程序出错。</p>
+</li>
+<li><p>503 Service Unavailable<br>  请求未完成。服务器临时过载或当机。</p>
+</li>
+<li><p>504 Gateway Timeout<br>  网关超时。</p>
+</li>
+<li><p>505 HTTP Version Not Supported<br>  服务器不支持请求中指明的HTTP协议版本</p>
+</li>
+</ul>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/reward/alipay.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/reward/wepay.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://www.if-she.com" target="_blank">https://www.if-she.com</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/trouble/header%E5%A4%B4%E9%83%A8%E6%B1%87%E6%80%BB/" class="pre-post btn btn-default" title='header头部汇总'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            header头部汇总</span>
+    </a>
+    
+    
+    <a href="/trouble/PHP%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6mime%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%B9%E6%B3%95/" class="next-post btn btn-default" title='PHP获取文件mime类型的方法'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            PHP获取文件mime类型的方法</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    
+<div class="widget">
+    <h3 class="title">
+        搜索
+    </h3>
+    <div id="search-form">
+        <div id="result-mask" class="hide"></div>
+        <div class="search-area">
+            
+            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
+            <button type="button" class="search-form-submit" id="search-local">
+                站内搜索</button>
+            
+            
+        </div>
+        <div id="result-wrap" class="hide">
+            <div id="search-result"></div>
+        </div>
+        <div class="hide">
+            <template id="search-tpl">
+                <div class="item">
+                    <a href="/{path}" title="{title}">
+                        <div class="title">{title}</div>
+                        <div class="content">{content}</div>
+                    </a>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>
+
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1xx-信息"><span class="toc-text">1xx:信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2xx-成功"><span class="toc-text">2xx:成功</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3xx-重定向"><span class="toc-text">3xx:重定向</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4xx-客户端错误"><span class="toc-text">4xx:客户端错误</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5xx-服务器错误"><span class="toc-text">5xx:服务器错误</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    <a href="https://www.if-she.com">小成的博客</a>
+                    
+                    
+                </span>
+                <!-- <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/search.js?rev=@@hash.js"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

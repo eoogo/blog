@@ -1,0 +1,438 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="简单 - 传递美好">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="https://www.if-she.com">
+    <!--SEO-->
+
+<meta name="keywords" content="webpack" />
+
+
+<meta name="description" content="webpack –profile –json &gt; stats.json 生成分析文件
+模块打包工具123webpack --watch #监听变化webpack-dev-server # ..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    webpack记录 |
+    
+    简单 - 传递美好
+</title>
+
+<link rel="alternate" href="/atom.xml" title="简单 - 传递美好" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?true";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+    <!-- Baidu Analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?8ce0d9d27ed019c8b2168cf7b304afd7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- baidu push -->
+    <script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167108107-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-167108107-1');
+    </script>
+    <!-- Google Adsense -->
+    <script data-ad-client="ca-pub-7668686520438482" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" >
+    
+        <div id="top-image" style="background-image:url(/img/banner.jpg)"></div>
+    
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ccheng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                简单 - 传递美好
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://www.if-she.com">
+                        简单 - 传递美好</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/笔记/"><i class="fa "></i>
+                                笔记</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="webpack记录">
+            
+            webpack记录
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/webpack/" rel="tag">webpack</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/19</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>webpack –profile –json &gt; stats.json 生成分析文件</p>
+<h1 id="模块打包工具"><a href="#模块打包工具" class="headerlink" title="模块打包工具"></a>模块打包工具</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">webpack --watch #监听变化</span><br><span class="line">webpack-dev-server # 热更新服务器，通过devServer来配置</span><br><span class="line">webpack-merge # webpack提供的深层合并对象方法</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span></span><br><span class="line">    <span class="comment">/* webpackPrefetch */</span></span><br><span class="line">    <span class="comment">/* webpackPreload */</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    entry: <span class="string">"index.js"</span>, <span class="comment">// 入口文件，可以使用对象类型配置多个入口,键为输出的文件名</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        publicPath: <span class="string">""</span>, <span class="comment">// 地址前缀</span></span><br><span class="line">        filename: <span class="string">"main.js"</span>, <span class="comment">// 支持占位符[name], contenthash</span></span><br><span class="line">        path: <span class="string">"保存绝对路径，默认当前目录的dist"</span>,</span><br><span class="line">        chunkFilename: <span class="string">""</span>, <span class="comment">// 分割文件名</span></span><br><span class="line">        library: <span class="string">""</span>, <span class="comment">// 将导出的对象挂载到这个变量上</span></span><br><span class="line">        libraryTarget: <span class="string">"umd"</span>, <span class="comment">// 作为库公开协议，支持AMD, CommonJS, ES6</span></span><br><span class="line">    &#125;,</span><br><span class="line">    resolve: &#123;</span><br><span class="line">        extensions: [], <span class="comment">// 自动补全的后缀</span></span><br><span class="line">        mainFiles: [], <span class="comment">// 导入文件夹下的默认名称</span></span><br><span class="line">        alias: &#123; <span class="comment">// 别名</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    externals: [<span class="string">"lodash"</span>], <span class="comment">// 在打包时排除指定的包，数组或对象</span></span><br><span class="line">    mode: <span class="string">"production/development"</span>, <span class="comment">// 设置打包环境</span></span><br><span class="line">    devtool: <span class="string">""</span>, <span class="comment">// 映射关系</span></span><br><span class="line">    <span class="comment">// none</span></span><br><span class="line">    <span class="comment">// source-map</span></span><br><span class="line">    <span class="comment">// eval</span></span><br><span class="line">    <span class="comment">// module</span></span><br><span class="line">    <span class="comment">// cheap</span></span><br><span class="line">    <span class="comment">// cheap-module-eval-source-map</span></span><br><span class="line">    devServer: &#123; <span class="comment">// 需要安装 webpack-dev-server</span></span><br><span class="line">        overlay: <span class="literal">true</span>/<span class="literal">false</span>, <span class="comment">// 在浏览器输出错误</span></span><br><span class="line">        contentBase: <span class="string">"./dist"</span>, <span class="comment">// 目标文件夹</span></span><br><span class="line">        port: <span class="number">8080</span>, <span class="comment">// 监听端口，默认8080</span></span><br><span class="line">        open: <span class="literal">true</span>/<span class="literal">false</span>, <span class="comment">// 自动打开浏览器</span></span><br><span class="line">        <span class="comment">// HMR 资源局部刷新（热更新）Hot Module Relacement</span></span><br><span class="line">        hot: <span class="literal">true</span>/<span class="literal">false</span>, <span class="comment">// 开启HMR 1</span></span><br><span class="line">        hotOnly: <span class="literal">true</span>/<span class="literal">false</span>, <span class="comment">// 开启HMR 2 // 在HMR失效的时候不刷新</span></span><br><span class="line">        <span class="comment">// 需要启用 webpack.HotModuleReplacementPligin 插件 3</span></span><br><span class="line">        <span class="comment">// js需要设置 module.hot.accept 进行回调</span></span><br><span class="line">        historyApiFallback: <span class="literal">true</span>/<span class="literal">false</span>, <span class="comment">// 在开发单页应用时将请求代理到入口</span></span><br><span class="line">        proxy: &#123; <span class="comment">// 请求代理</span></span><br><span class="line">            请求地址: 代理域名,</span><br><span class="line">            请求地址: &#123;</span><br><span class="line">                target: 代理域名,</span><br><span class="line">                secure: <span class="literal">true</span>/<span class="literal">false</span>, <span class="comment">// 启用https</span></span><br><span class="line">                pathRewrite: &#123;</span><br><span class="line">                    重写地址支持正则: 重写地址</span><br><span class="line">                &#125;,</span><br><span class="line">                changeOrigin: <span class="literal">true</span>/<span class="literal">false</span>, <span class="comment">// 防止反爬虫</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    resolveLoader: &#123;</span><br><span class="line">        modules: [<span class="string">'node_modules'</span>, <span class="string">'./my_loaders'</span>] <span class="comment">// 在这个路径下搜索loader</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/规则正则/</span>,</span><br><span class="line">                use: &#123; <span class="comment">// 可以使用数组表示多个loader</span></span><br><span class="line">                    exclude: <span class="regexp">/正则规则/</span>, <span class="comment">// 排除目录, 正则对象， 与include相反</span></span><br><span class="line">                    loader: <span class="string">"打包方案(loader)"</span>, <span class="comment">// 从下向上执行</span></span><br><span class="line">                    <span class="comment">// file-loader: 文件整理</span></span><br><span class="line">                    <span class="comment">// url-loader: 链接整理</span></span><br><span class="line">                    <span class="comment">// css-loader: 引入css</span></span><br><span class="line">                    <span class="comment">// style-loader: 将css放到head部分</span></span><br><span class="line">                    <span class="comment">// sass-loader: sass编译</span></span><br><span class="line">                    <span class="comment">// postcss-loader: 自动添加css前缀</span></span><br><span class="line">                    <span class="comment">// ts-loader: Type-script, 需要安装type-script</span></span><br><span class="line">                    <span class="comment">// eslint-loader</span></span><br><span class="line">                    <span class="comment">// 打包优化</span></span><br><span class="line">                    <span class="comment">// thread-loader</span></span><br><span class="line">                    <span class="comment">// parallel-webpack</span></span><br><span class="line">                    options: &#123;</span><br><span class="line">                        <span class="comment">// 打包方案配置</span></span><br><span class="line">                        name: <span class="string">"保存名称规则,支持占位符"</span>,</span><br><span class="line">                        importLoader: <span class="number">2</span>,</span><br><span class="line">                        outputPath: <span class="string">"该规则对应的文件打包文件夹"</span></span><br><span class="line">                        limit: <span class="number">2048</span>, <span class="comment">// 当小于此值的时候直接打包为base64到js中，否则打包为文件</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="comment">// 插件对象，需要先导入后new</span></span><br><span class="line">        <span class="comment">// html-webpack-plugin: 模板生成插件， template:模板文件名,filename:输出文件名,chunk:需要引入的入口文件</span></span><br><span class="line">        <span class="comment">// clean-webpack-plugin: 自动清理dist文件夹，(['dist'])</span></span><br><span class="line">        <span class="comment">// mini-css-extract-plugin</span></span><br><span class="line">        <span class="comment">// webpack</span></span><br><span class="line">            <span class="comment">// HotModuleReplacementPlugin 热更新模块</span></span><br><span class="line">            <span class="comment">// ProvidePlugin 自动导入模块（检测到指定字符串后自动导入该模块）</span></span><br><span class="line">            <span class="comment">// DllPlugin    缓存依赖映射文件，加快打包速度</span></span><br><span class="line">            <span class="comment">// DllReferencePlugin // 使用缓存映射文件，加快打包速度 node-&gt;fs.readdirSync</span></span><br><span class="line">        <span class="comment">// WorkboxWebpackPlugin     PWA技术</span></span><br><span class="line">        <span class="comment">// add-asset-html-webpack-plugin 给html额外增加内容（filepath）</span></span><br><span class="line">    ],</span><br><span class="line">    optimization: &#123;</span><br><span class="line">        usedExports: <span class="literal">true</span>/<span class="literal">false</span>, <span class="comment">// 启用Tree Shaking, 在package.json中配置sideEffects自动导入没有导出内容的模块, 在生产环境自动为true</span></span><br><span class="line">        splitChunks: &#123; <span class="comment">// Code Splitting 模块文件编译分割</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    performance: &#123;</span><br><span class="line">        hints: <span class="literal">false</span></span><br><span class="line">    &#125;, <span class="comment">// 屏蔽性能警告</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module.exports = &#123;</span></span><br><span class="line"><span class="comment">//     entry: '入口',</span></span><br><span class="line"><span class="comment">//     output: &#123;</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/reward/alipay.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/reward/wepay.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://www.if-she.com" target="_blank">https://www.if-she.com</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/record/react-native%E8%AE%B0%E5%BD%95/" class="pre-post btn btn-default" title='react-native记录'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            react-native记录</span>
+    </a>
+    
+    
+    <a href="/record/shopify%E9%85%8D%E7%BD%AE%E5%AD%97%E6%AE%B5%E4%BF%A1%E6%81%AF/" class="next-post btn btn-default" title='shopify配置字段信息'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            shopify配置字段信息</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    
+<div class="widget">
+    <h3 class="title">
+        搜索
+    </h3>
+    <div id="search-form">
+        <div id="result-mask" class="hide"></div>
+        <div class="search-area">
+            
+            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
+            <button type="button" class="search-form-submit" id="search-local">
+                站内搜索</button>
+            
+            
+        </div>
+        <div id="result-wrap" class="hide">
+            <div id="search-result"></div>
+        </div>
+        <div class="hide">
+            <template id="search-tpl">
+                <div class="item">
+                    <a href="/{path}" title="{title}">
+                        <div class="title">{title}</div>
+                        <div class="content">{content}</div>
+                    </a>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>
+
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#模块打包工具"><span class="toc-text">模块打包工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webpack-config-js"><span class="toc-text">webpack.config.js</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    <a href="https://www.if-she.com">小成的博客</a>
+                    
+                    
+                </span>
+                <!-- <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/search.js?rev=@@hash.js"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

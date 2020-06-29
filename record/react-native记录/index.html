@@ -1,0 +1,528 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="简单 - 传递美好">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="https://www.if-she.com">
+    <!--SEO-->
+
+<meta name="keywords" content="webpack,react,react-native" />
+
+
+<meta name="description" content="reactclass 和function的区别
+
+class有自己的私有数据
+function没有私有数据和声明周期函数
+
+开启网络调试adb -s 设备名 reverse tcp:8081 t..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    react-native记录 |
+    
+    简单 - 传递美好
+</title>
+
+<link rel="alternate" href="/atom.xml" title="简单 - 传递美好" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?true";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+    <!-- Baidu Analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?8ce0d9d27ed019c8b2168cf7b304afd7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- baidu push -->
+    <script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167108107-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-167108107-1');
+    </script>
+    <!-- Google Adsense -->
+    <script data-ad-client="ca-pub-7668686520438482" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header" >
+    
+        <div id="top-image" style="background-image:url(/img/banner.jpg)"></div>
+    
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ccheng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                简单 - 传递美好
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://www.if-she.com">
+                        简单 - 传递美好</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/笔记/"><i class="fa "></i>
+                                笔记</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="react-native记录">
+            
+            react-native记录
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/react/" rel="tag">react</a> <a class="tag-link" href="/tags/react-native/" rel="tag">react-native</a> <a class="tag-link" href="/tags/webpack/" rel="tag">webpack</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/19</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="react"><a href="#react" class="headerlink" title="react"></a>react</h1><p>class 和function的区别</p>
+<ul>
+<li>class有自己的私有数据</li>
+<li>function没有私有数据和声明周期函数</li>
+</ul>
+<h1 id="开启网络调试"><a href="#开启网络调试" class="headerlink" title="开启网络调试"></a>开启网络调试</h1><p>adb -s 设备名 reverse tcp:8081 tcp:8081</p>
+<h1 id="特定标签"><a href="#特定标签" class="headerlink" title="特定标签"></a>特定标签</h1><ul>
+<li>SafeAreaView<br>  可用区域</li>
+<li>View<br>  块状区域</li>
+<li>Image<br>  图片    source属性，可以是对象, 加载网络图片必须设置宽高</li>
+<li>ImageBackground<br>  图片背景组件</li>
+<li>图片显示模式<br>  样式resizeMode(css object-fit)属性</li>
+<li>TextInput<br>  输入框，设置边框的border不是复合属性</li>
+<li>TouchableOpacity<br>  监听点击组件，变透明</li>
+<li>TouchableHighlight<br>  监听点击组件，变暗色</li>
+<li>TouchableNativeFeedback<br>  监听点击组件，涟漪效果</li>
+<li>TouchableWithoutFeedback<br>  监听点击组件，没有反馈效果</li>
+<li>ScrollView<br>  滚动视图，必须指定宽高</li>
+</ul>
+<p>css 写错之后会有提示</p>
+<ul>
+<li>Flex<br>  均分布局</li>
+<li>flexDirection</li>
+<li>justifyContent 和css一样</li>
+</ul>
+<p>获取当前设备宽度</p>
+<ul>
+<li>Dimensions.get(‘window’).width</li>
+</ul>
+<p>获取当前操作系统</p>
+<ul>
+<li>Platform.OS</li>
+</ul>
+<h1 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h1><p>安装依赖包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i --save @react-navigation&#x2F;native</span><br><span class="line">npm i --save @react-navigation&#x2F;stack</span><br><span class="line">npm i --save react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community&#x2F;masked-view</span><br></pre></td></tr></table></figure>
+
+<p>NavigationContainer<br>Stack.Navigator</p>
+<ul>
+<li>screenOptions 为默认的Screen的options配置<br>Stack.Screen 属性</li>
+<li>name: 容器名称</li>
+<li>component: 页面</li>
+<li>initialParams: 默认参数</li>
+<li>options: 配置项<ul>
+<li>title: 标题栏</li>
+<li>headerStyle: 一种样式对象，或使用backgroundColor指定颜色</li>
+<li>headerTintColor: 后退按钮和标题的颜色</li>
+<li>headerTitleStyle: 标题的css样式对象</li>
+<li>headerTitle: 自定义导航组件</li>
+<li>headerLeft: 自定义左边组件</li>
+<li>headerRight: 自定义右边组件</li>
+<li>headerShown: 是否显示header</li>
+</ul>
+</li>
+</ul>
+<p>跳转方式</p>
+<ul>
+<li>this.props.navigation<ul>
+<li>setOptions 更改此页面的prop配置项</li>
+<li>navigate    如果没有这个页面则压入，否则不做操作（常用）, 传递参数时，配置 {screen: ‘容器名’} 同时传给其他导航器</li>
+<li>push    压栈操作</li>
+<li>goBack    返回上一级</li>
+<li>popToTop 回到首页</li>
+</ul>
+</li>
+<li>参数传递</li>
+<li>参数2为对象</li>
+<li>接收时 this.props.navigation.getParam(‘键名’, 默认值)</li>
+<li>整体获取: this.props.navigation.state.params()获取</li>
+<li>Hook</li>
+<li>navigation.navigate</li>
+<li>route.params.xx</li>
+</ul>
+<h2 id="嵌套导航器-在一个导航容器中嵌套其他导航器"><a href="#嵌套导航器-在一个导航容器中嵌套其他导航器" class="headerlink" title="嵌套导航器 - 在一个导航容器中嵌套其他导航器"></a>嵌套导航器 - 在一个导航容器中嵌套其他导航器</h2><ul>
+<li>每个导航器都有自己的历史记录</li>
+<li>嵌套导航器不接受父导航器的事件</li>
+<li>父导航器的UI呈现在子导航器的顶部</li>
+<li>不建议多层嵌套，会影响性能或影响用户体验</li>
+</ul>
+<h2 id="导航器生命周期"><a href="#导航器生命周期" class="headerlink" title="导航器生命周期"></a>导航器生命周期</h2><ul>
+<li>同react生命周期</li>
+<li>或使用useEffect、useFocusEffect和useIsFocused挂钩</li>
+</ul>
+<h2 id="导航器术语"><a href="#导航器术语" class="headerlink" title="导航器术语"></a>导航器术语</h2><ul>
+<li>Header: 标头 上边包含标题的那部分内容被称为标头</li>
+<li>Navigator: 导航器 包含在NavigationContainer中用来实现跳转的</li>
+<li>Screen Component: 屏幕组件</li>
+<li>Navigation Prop: 导航道具 页面跳转逻辑</li>
+<li>Route Prop: 路由道具 页面间跳转参数的调用</li>
+<li>Navigation State: 导航状态</li>
+<li>Route: 路由</li>
+</ul>
+<h1 id="打包apk"><a href="#打包apk" class="headerlink" title="打包apk"></a>打包apk</h1><p><a href="https://reactnative.cn/docs/signed-apk-android" target="_blank" rel="noopener">官方文档</a></p>
+<h2 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h2><h3 id="Could-not-download-groovy-all-2-4-15-jar"><a href="#Could-not-download-groovy-all-2-4-15-jar" class="headerlink" title="Could not download groovy-all-2.4.15.jar"></a>Could not download groovy-all-2.4.15.jar</h3><p>错误: 修改 android/build.gradle 替换google() 和 jcenter()为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">maven &#123; url &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;google&#39;&#125;</span><br><span class="line">maven &#123; url &#39;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;jcenter&#39;&#125;</span><br><span class="line">maven &#123; url &#39;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#39;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-0以上无法连接网络"><a href="#9-0以上无法连接网络" class="headerlink" title="9.0以上无法连接网络"></a>9.0以上无法连接网络</h3><p>在\android\app\src\main\AndroidManifest.xml中application下添加 android:usesCleartextTraffic=”true”</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/reward/alipay.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/reward/wepay.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://www.if-she.com" target="_blank">https://www.if-she.com</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/record/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="pre-post btn btn-default" title='程序设计模式'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            程序设计模式</span>
+    </a>
+    
+    
+    <a href="/record/webpack%E8%AE%B0%E5%BD%95/" class="next-post btn btn-default" title='webpack记录'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            webpack记录</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    
+<div class="widget">
+    <h3 class="title">
+        搜索
+    </h3>
+    <div id="search-form">
+        <div id="result-mask" class="hide"></div>
+        <div class="search-area">
+            
+            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
+            <button type="button" class="search-form-submit" id="search-local">
+                站内搜索</button>
+            
+            
+        </div>
+        <div id="result-wrap" class="hide">
+            <div id="search-result"></div>
+        </div>
+        <div class="hide">
+            <template id="search-tpl">
+                <div class="item">
+                    <a href="/{path}" title="{title}">
+                        <div class="title">{title}</div>
+                        <div class="content">{content}</div>
+                    </a>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>
+
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#react"><span class="toc-text">react</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开启网络调试"><span class="toc-text">开启网络调试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#特定标签"><span class="toc-text">特定标签</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#导航"><span class="toc-text">导航</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套导航器-在一个导航容器中嵌套其他导航器"><span class="toc-text">嵌套导航器 - 在一个导航容器中嵌套其他导航器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导航器生命周期"><span class="toc-text">导航器生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导航器术语"><span class="toc-text">导航器术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#打包apk"><span class="toc-text">打包apk</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常见错误"><span class="toc-text">常见错误</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Could-not-download-groovy-all-2-4-15-jar"><span class="toc-text">Could not download groovy-all-2.4.15.jar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-0以上无法连接网络"><span class="toc-text">9.0以上无法连接网络</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    <a href="https://www.if-she.com">小成的博客</a>
+                    
+                    
+                </span>
+                <!-- <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/search.js?rev=@@hash.js"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
