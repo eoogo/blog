@@ -93,7 +93,7 @@
             //     $toc.style.width = width + "px"
             // }
             var top = $mainNavigation.offsetTop + $mainNavigation.offsetHeight;
-            if (getScrollTop() - top >= 0) {
+            if (getScrollTop() - top >= 0 && window.innerWidth > 990) {
                 $toc.style.top = getScrollTop() - top + 'px';
             }else {
                 $toc.style = "";
@@ -171,7 +171,7 @@ var next_btn = document.querySelector('.extend.next');
 if (next_btn) next_btn.innerHTML = next_btn.innerText;
 
 // banner效果
-var movementStrength = 25;
+/* var movementStrength = 25;
 var height = movementStrength / screen.height;
 var width = movementStrength / screen.width;
 var top_image = document.getElementById('top-image');
@@ -181,4 +181,4 @@ document.body.onmousemove = function(e){
     var newvalueX = width * pageX * -1 - 25;
     var newvalueY = height * pageY * -1 - 50;
     top_image.style.backgroundPosition = newvalueX + "px " + newvalueY + "px";
-}
+} */
