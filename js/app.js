@@ -92,7 +92,10 @@
             //     $toc.style.left = left + "px";
             //     $toc.style.width = width + "px"
             // }
-            var top = $mainNavigation.offsetTop + $mainNavigation.offsetHeight;
+            var google_banner_ads = document.querySelector('.google-auto-placed');
+            var google_banner_ads_height = 0;
+            if (google_banner_ads) google_banner_ads_height = google_banner_ads.offsetHeight;
+            var top = $mainNavigation.offsetTop + $mainNavigation.offsetHeight + google_banner_ads_height + 30;
             if (getScrollTop() - top >= 0 && window.innerWidth > 990) {
                 $toc.style.top = getScrollTop() - top + 'px';
             }else {
